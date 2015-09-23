@@ -1,6 +1,6 @@
 class cacti {
 
-  package { cacti" :
+  package { "cacti" :
         ensure => installed,
   }
 

@@ -6,7 +6,7 @@ class cacti(
         ensure => installed,
   }
 
-  file { '${cli_dir}/remove_device.php':
+  file { "${cli_dir}/remove_device.php":
     ensure => present,
     source => 'puppet:///modules/cacti/remove_device.php',
   }

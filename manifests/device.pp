@@ -1,28 +1,38 @@
 # == Definition: cacti::device
 #
 define cacti::device (
-  $ip           = undef,
-  $ensure       = 'present',
-  $disable      = 0,
-  $description  = undef,
-  $template     = 8,
-  $notes        = '',
-  $disable      = 0,
-  $avail        = 'snmp',
-  $ping_method  = 'tcp',
-  $ping_port    = 161,
-  $ping_retries = 2,
-  $version      = 2,
-  $port         = 161,
-  $timeout      = 500,
-  $community    = 'mgmtcacti',
-  $username     = '',
-  $password     = '',
-  $authproto    = '',
-  $privpass     = '',
-  $privproto    = ''
+  $ip          ,
+  $ensure      ,
+  $disable     ,
+  $description ,
+  $template    ,
+  $notes       ,
+  $disable     ,
+  $avail       ,
+  $ping_method ,
+  $ping_port   ,
+  $ping_retries,
+  $version     ,
+  $port        ,
+  $timeout     ,
+  $community   ,
+  $username    ,
+  $password    ,
+  $authproto   ,
+  $privpass    ,
+  $privproto
 ) {
 
-
-
+case $ensure {
+  'present': {
+     exec { "add_device_${description}":
+       command => "php -q /usr/share/cacti/cli/add_device.php --list-host-templates | grep '${template}' | awk '{print \$1}' | xargs -I++ php -q /usr/share/cacti/cli/add_device.php --description='${description}' --ip=${ip} --template=++ --notes='${notes}' --disable=${disable} --avail=${avail} --ping_method=${ping_method} --ping_port=${ping_port} --ping_retries=${ping_retries} --version=${version} --port=${port} --timeout=${timeout} --community=${community} --username='${username}' --password='${password}' --authproto='${authproto}' --privpass='${privpass}' --privproto='${privproto}'",
+       unless  => "php -q /usr/share/cacti/cli/add_graphs.php --list-hosts | grep ${description}",
+     }
+  }
+  'absent': {
+     exec { "remove_device_${description}":
+       command => "php -q /usr/share/cacti/cli/remove_device.php --list-devices | grep '${description}' | awk '{print \$1}' | xargs -I++ php -q /usr/share/cacti/cli/remove_device.php --device_id=++ ",
+     }
+  }
 }

@@ -54,10 +54,10 @@ define cacti::host (
   }
 
 
-  cacti::graph { "Advanced Ping ${name}":
+  cacti::graph { "Load Average ${name}":
     host          => $name,
     graphtype     => 'cg',
-    graphtemplate => 'PING - Advanced Ping v1.3',
+    graphtemplate => 'Unix - Load Average',
     require       =>  Cacti::Add_device[$name],
   }
 

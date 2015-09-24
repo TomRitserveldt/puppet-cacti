@@ -1,9 +1,10 @@
 class cacti(
   $cli_dir = '/usr/share/cacti/cli',
+  $ensure  = present,
 ) {
 
   package { "cacti" :
-        ensure => installed,
+        ensure => $ensure,
   }
 
   file { "${cli_dir}/remove_device.php":

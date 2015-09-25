@@ -4,7 +4,6 @@
 class cacti::params {
   $ip           = undef
   $ensure       = 'present'
-  $disable      = 0
   $description  = undef
   $template     = 8
   $notes        = ''
@@ -23,5 +22,5 @@ class cacti::params {
   $privpass     = ''
   $privproto    = ''
   $cli_dir = '/usr/share/cacti/cli'
-} # Class:: ccacti::params
+} # Class:: cacti::params
 

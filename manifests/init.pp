@@ -1,7 +1,7 @@
 class cacti(
-  $cli_dir = '/usr/share/cacti/cli',
-  $ensure  = present,
-) {
+  $cli_dir = $cacti::params::cli_dir,
+  $ensure  = $cacti::params::ensure,
+) inherits cacti::params {
 
   package { "cacti" :
         ensure => $ensure,

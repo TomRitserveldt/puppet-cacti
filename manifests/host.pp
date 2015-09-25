@@ -1,27 +1,27 @@
 # == Definition: cacti::host
 #
 define cacti::host (
-  $ip           = undef,
-  $ensure       = 'present',
-  $disable      = 0,
-  $description  = undef,
-  $template     = 8,
-  $notes        = '',
-  $disable      = 0,
-  $avail        = 'snmp',
-  $ping_method  = 'tcp',
-  $ping_port    = 161,
-  $ping_retries = 2,
-  $version      = 2,
-  $port         = 161,
-  $timeout      = 500,
-  $community    = 'mgmtcacti',
-  $username     = '',
-  $password     = '',
-  $authproto    = '',
-  $privpass     = '',
-  $privproto    = ''
-) {
+  $ip           = $cacti::params::ip ,
+  $ensure       = $cacti::params::ensure,
+  $disable      = $cacti::params::disable,
+  $description  = $cacti::params::description,
+  $template     = $cacti::params::template,
+  $notes        = $cacti::params::notes,
+  $disable      = $cacti::params::disable,
+  $avail        = $cacti::params::avail,
+  $ping_method  = $cacti::params::ping_method,
+  $ping_port    = $cacti::params::ping_port,
+  $ping_retries = $cacti::params::ping_retries,
+  $version      = $cacti::params::version,
+  $port         = $cacti::params::port,
+  $timeout      = $cacti::params::timeout,
+  $community    = $cacti::params::community,
+  $username     = $cacti::params::username,
+  $password     = $cacti::params::password,
+  $authproto    = $cacti::params::authproto,
+  $privpass     = $cacti::params::privpass,
+  $privproto    = $cacti::params::privproto
+) inherits cacti::params {
 
   # fails when no name/title is provided
   if $name == '' {

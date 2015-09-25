@@ -22,6 +22,6 @@ class cacti::params {
   $authproto    = ''
   $privpass     = ''
   $privproto    = ''
-  $cli_dir = '/usr/share/cacti/cli',
+  $cli_dir = '/usr/share/cacti/cli'
 } # Class:: ccacti::params
 

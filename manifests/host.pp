@@ -4,7 +4,7 @@ define cacti::host (
   $ip           = $cacti::ip,
   $ensure       = $cacti::ensure,
   $disable      = $cacti::disable,
-  $description  = undef,
+  $description  = $name,
   $template     = $cacti::template,
   $notes        = $cacti::notes,
   $disable      = $cacti::disable,
@@ -33,8 +33,6 @@ define cacti::host (
   # fails when no name/title is provided
   if $name == '' {
     fail('Can not create a host with empty title/name')
-  } else {
-    $description = $name
   }
 
 

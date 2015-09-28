@@ -40,6 +40,7 @@ define cacti::host (
   cacti::device { $name:
     ip           => $ip,
     description  => $description,
+    ensure       => $ensure,
     template     => $template,
     notes        => $notes,
     disable      => $disable,
@@ -65,7 +66,7 @@ define cacti::host (
     host          => $name,
     graphtype     => 'cg',
     graphtemplate => 'Unix - Load Average',
-    require       =>  cacti::device[$name],
+    require       =>  Cacti::Device[$name],
   }
 
 }

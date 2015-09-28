@@ -12,4 +12,10 @@ class cacti(
     source => 'puppet:///modules/cacti/remove_device.php',
   }
 
+  file { "/usr/share/cacti/scripts/cactigraph.sh":
+    ensure => present,
+    source => 'puppet:///modules/cacti/cactigraph.sh',
+  }
+
+
 }

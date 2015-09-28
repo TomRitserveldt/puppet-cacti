@@ -25,5 +25,10 @@ class cacti::params {
   $host          = undef
   $graphtype     = undef
   $graphtemplate = undef
+  $field         = '',
+  $snmpquery     = '',
+  $snmptype      = '',
+  $snmpvalue     = '',
+  $reindexmethod = ''
 } # Class:: cacti::params
 

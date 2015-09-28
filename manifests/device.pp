@@ -20,19 +20,20 @@ define cacti::device (
   $password    ,
   $authproto   ,
   $privpass    ,
-  $privproto
+  $privproto   ,
+  $cli_dir
 ) {
 
 case $ensure {
   'present': {
      exec { "add_device_${description}":
-       command => "php -q /usr/share/cacti/cli/add_device.php --list-host-templates | grep '${template}' | awk '{print \$1}' | xargs -I++ php -q /usr/share/cacti/cli/add_device.php --description='${description}' --ip=${ip} --template=++ --notes='${notes}' --disable=${disable} --avail=${avail} --ping_method=${ping_method} --ping_port=${ping_port} --ping_retries=${ping_retries} --version=${version} --port=${port} --timeout=${timeout} --community=${community} --username='${username}' --password='${password}' --authproto='${authproto}' --privpass='${privpass}' --privproto='${privproto}'",
-       unless  => "php -q /usr/share/cacti/cli/add_graphs.php --list-hosts | grep ${description}",
+       command => "php -q ${cli_dir}/add_device.php --list-host-templates | grep '${template}' | awk '{print \$1}' | xargs -I++ php -q ${cli_dir}/add_device.php --description='${description}' --ip=${ip} --template=++ --notes='${notes}' --disable=${disable} --avail=${avail} --ping_method=${ping_method} --ping_port=${ping_port} --ping_retries=${ping_retries} --version=${version} --port=${port} --timeout=${timeout} --community=${community} --username='${username}' --password='${password}' --authproto='${authproto}' --privpass='${privpass}' --privproto='${privproto}'",
+       unless  => "php -q ${cli_dir}/add_graphs.php --list-hosts | grep ${description}",
      }
   }
   'absent': {
      exec { "remove_device_${description}":
-       command => "php -q /usr/share/cacti/cli/remove_device.php --list-devices | grep '${description}' | awk '{print \$1}' | xargs -I++ php -q /usr/share/cacti/cli/remove_device.php --device_id=++ ",
+       command => "php -q ${cli_dir}/remove_device.php --list-devices | grep '${description}' | awk '{print \$1}' | xargs -I++ php -q ${cli_dir}/remove_device.php --device_id=++ ",
      }
   }
 }

@@ -20,7 +20,8 @@ define cacti::host (
   $password     = $cacti::params::password,
   $authproto    = $cacti::params::authproto,
   $privpass     = $cacti::params::privpass,
-  $privproto    = $cacti::params::privproto
+  $privproto    = $cacti::params::privproto,
+  $cli_dir      = $cacti::params::cli_dir 
 ) inherits cacti::params {
 
   # fails when no name/title is provided
@@ -50,10 +51,12 @@ define cacti::host (
     password     => $password,
     authproto    => $authproto,
     privpass     => $privpass,
-    privproto    => $privproto
+    privproto    => $privproto,
+    cli_dir      => $cli_dir
   }
 
-
+  # Some default graphs we use on every device are made here
+  ## TO-DO add more default graphs
   cacti::graph { "Load Average ${name}":
     host          => $name,
     graphtype     => 'cg',

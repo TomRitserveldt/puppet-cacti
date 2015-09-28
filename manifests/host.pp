@@ -58,15 +58,14 @@ define cacti::host (
     privpass     => $privpass,
     privproto    => $privproto,
     cli_dir      => $cli_dir,
-  }
-
-  # Some default graphs we use on every device are made here
-  ## TO-DO add more default graphs
+  } ->
   cacti::graph { "Load Average ${name}":
     host          => $name,
     graphtype     => 'cg',
     graphtemplate => 'Unix - Load Average',
     require       =>  Cacti::Device[$name],
   }
+  # Some default graphs we use on every device are made here
+  ## TO-DO add more default graphs
 
 }

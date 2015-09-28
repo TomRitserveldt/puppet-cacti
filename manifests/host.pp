@@ -24,7 +24,7 @@ define cacti::host (
   $cli_dir      = $cacti::params::cli_dir,
 
 ) inherits cacti::params {
-
+/*
   # fails when no name/title is provided
   if $name == '' {
     fail('Can not create a host with empty title/name')
@@ -65,5 +65,5 @@ define cacti::host (
     require       =>  Cacti::device[$name],
   }
 
-
+*/
 }

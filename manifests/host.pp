@@ -67,7 +67,7 @@ define cacti::host (
     host          => $name,
     graphtype     => 'cg',
     graphtemplate => 'Unix - Load Average',
-    require       =>  Cacti::device[$name],
+    require       =>  cacti::device[$name],
   }
 
 }

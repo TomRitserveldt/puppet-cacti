@@ -4,7 +4,7 @@ define cacti::host (
   $ip           = $cacti::ip,
   $ensure       = $cacti::ensure,
   $disable      = $cacti::disable,
-  $description  = $cacti::description,
+  $description  = undef,
   $template     = $cacti::template,
   $notes        = $cacti::notes,
   $disable      = $cacti::disable,

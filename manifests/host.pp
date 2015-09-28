@@ -1,29 +1,34 @@
 # == Definition: cacti::host
 #
 define cacti::host (
-  $ip           = $cacti::params::ip,
-  $ensure       = $cacti::params::ensure,
-  $disable      = $cacti::params::disable,
-  $description  = $cacti::params::description,
-  $template     = $cacti::params::template,
-  $notes        = $cacti::params::notes,
-  $disable      = $cacti::params::disable,
-  $avail        = $cacti::params::avail,
-  $ping_method  = $cacti::params::ping_method,
-  $ping_port    = $cacti::params::ping_port,
-  $ping_retries = $cacti::params::ping_retries,
-  $version      = $cacti::params::version,
-  $port         = $cacti::params::port,
-  $timeout      = $cacti::params::timeout,
-  $community    = $cacti::params::community,
-  $username     = $cacti::params::username,
-  $password     = $cacti::params::password,
-  $authproto    = $cacti::params::authproto,
-  $privpass     = $cacti::params::privpass,
-  $privproto    = $cacti::params::privproto,
-  $cli_dir      = $cacti::params::cli_dir,
+  $ip           = $cacti::ip,
+  $ensure       = $cacti::ensure,
+  $disable      = $cacti::disable,
+  $description  = $cacti::description,
+  $template     = $cacti::template,
+  $notes        = $cacti::notes,
+  $disable      = $cacti::disable,
+  $avail        = $cacti::avail,
+  $ping_method  = $cacti::ping_method,
+  $ping_port    = $cacti::ping_port,
+  $ping_retries = $cacti::ping_retries,
+  $version      = $cacti::version,
+  $port         = $cacti::port,
+  $timeout      = $cacti::timeout,
+  $community    = $cacti::community,
+  $username     = $cacti::username,
+  $password     = $cacti::password,
+  $authproto    = $cacti::authproto,
+  $privpass     = $cacti::privpass,
+  $privproto    = $cacti::privproto,
+  $cli_dir      = $cacti::cli_dir,
 
-) inherits cacti::params {
+) {
+
+  # The base class must be included first because it is used by parameter defaults
+  if ! defined(Class['cacti']) {
+    fail('You must include the cacti base class before using any cacti defined resources')
+  }
 
   # fails when no name/title is provided
   if $name == '' {

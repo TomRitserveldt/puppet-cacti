@@ -2,12 +2,14 @@
 #
 #
 class cacti::params {
-  $ip            = undef
+  $cli_dir       = '/usr/share/cacti/cli'
+  $server        = false
   $ensure        = 'present'
+  $ip            = undef
+  $disable       = 0
   $description   = undef
   $template      = 8
   $notes         = ''
-  $disable       = 0
   $avail         = 'snmp'
   $ping_method   = 'tcp'
   $ping_port     = 161
@@ -21,7 +23,6 @@ class cacti::params {
   $authproto     = ''
   $privpass      = ''
   $privproto     = ''
-  $cli_dir       = '/usr/share/cacti/cli'
   $host          = undef
   $graphtype     = undef
   $graphtemplate = undef

@@ -1,17 +1,21 @@
 # == Definition: cacti::graph
 #
 define cacti::graph (
-  $cli_dir       = $cacti::params::cli_dir,
-  $host          = $cacti::params::host,
-  $graphtype     = $cacti::params::graphtype,
-  $graphtemplate = $cacti::params::graphtemplate,
+  $cli_dir       = $cacti::cli_dir,
+  $host          = $cacti::host,
+  $graphtype     = $cacti::graphtype,
+  $graphtemplate = $cacti::graphtemplate,
   $graphtitle    = $name,
-  $field         = $cacti::params::field,
-  $snmpquery     = $cacti::params::snmpquery,
-  $snmptype      = $cacti::params::snmptype,
-  $snmpvalue     = $cacti::params::snmpvalue,
-  $reindexmethod = $cacti::params::reindexmethod
-) inherits cacti::params {
+  $field         = $cacti::field,
+  $snmpquery     = $cacti::snmpquery,
+  $snmptype      = $cacti::snmptype,
+  $snmpvalue     = $cacti::snmpvalue,
+  $reindexmethod = $cacti::reindexmethod
+) {
+
+  if ! defined(Class['cacti']) {
+    fail('You must include the cacti base class before using any cacti defined resources')
+  }
 
   exec { "add_graph_${host}_${graphtemplate}_${field}":
     command => "/usr/share/cacti/scripts/cactigraph.sh '${host}' ${graphtype} '${graphtemplate}' '${graphtitle}' '${field}' '${snmpquery}' '${snmpqtype}' '${snmpvalue}' '${reindexmethod}'",

@@ -1,7 +1,7 @@
 # == Definition: cacti::host
 #
 define cacti::host (
-  $ip           = $cacti::params::ip ,
+  $ip           = $cacti::params::ip,
   $ensure       = $cacti::params::ensure,
   $disable      = $cacti::params::disable,
   $description  = $cacti::params::description,
@@ -21,7 +21,8 @@ define cacti::host (
   $authproto    = $cacti::params::authproto,
   $privpass     = $cacti::params::privpass,
   $privproto    = $cacti::params::privproto,
-  $cli_dir      = $cacti::params::cli_dir 
+  $cli_dir      = $cacti::params::cli_dir
+
 ) inherits cacti::params {
 
   # fails when no name/title is provided

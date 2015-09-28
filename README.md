@@ -1,12 +1,12 @@
 Adding new hosts to cacti:
 
 Use the class cacti::host resource, example:
-cacti::host {'hosting1':
-  ip       => '10.1.0.14',
-  template => 8,
-}
 
-To use a template, assign a valid id (default is a linux machine) from the following list:
+@@cacti::host {'hosting1':
+  ip       => '10.1.0.14',
+  template => 'Local Linux Machine',
+}
+This will add a new device and some default graphs (as seen in the host.pp manifest)
 
 Valid Host Templates: (id, name)
 0	None

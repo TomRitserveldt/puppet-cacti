@@ -21,7 +21,7 @@ define cacti::host (
   $authproto    = $cacti::params::authproto,
   $privpass     = $cacti::params::privpass,
   $privproto    = $cacti::params::privproto,
-  $cli_dir      = $cacti::params::cli_dir
+  $cli_dir      = $cacti::params::cli_dir,
 
 ) inherits cacti::params {
 

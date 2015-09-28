@@ -34,9 +34,7 @@ class cacti(
 ) inherits cacti::params {
 
   if $server == true {
-    package { "cacti" :
-          ensure => $ensure,
-    }
+    include cacti::server
   }
 
   file { "${cli_dir}/remove_device.php":

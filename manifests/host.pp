@@ -58,7 +58,7 @@ define cacti::host (
     authproto    => $authproto,
     privpass     => $privpass,
     privproto    => $privproto,
-    cli_dir      => $cli_dir
+    cli_dir      => $cli_dir,
   }
 
   # Some default graphs we use on every device are made here

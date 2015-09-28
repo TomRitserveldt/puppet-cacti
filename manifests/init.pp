@@ -49,6 +49,8 @@ class cacti(
   } ->
   file { "/usr/share/cacti/scripts/cactigraph.sh":
     ensure => present,
+    owner  => root,
+    mode   => '0755',
     source => 'puppet:///modules/cacti/cactigraph.sh',
   }
 

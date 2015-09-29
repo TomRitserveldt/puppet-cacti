@@ -7,5 +7,5 @@ class cacti::server {
   Cacti::Host <<| title!= undef |>>
   Cacti::Device <<| title != undef |>>
   Cacti::Graph <<| title != undef |>>
-  inlude ::apache
+  include ::apache
 }

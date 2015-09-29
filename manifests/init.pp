@@ -51,6 +51,9 @@ class cacti(
     mode   => '0755',
     source => 'puppet:///modules/cacti/cactigraph.sh',
   }
-
+  
+  class { '::snmp':
+    agentaddress => [ 'udp:161', 'udp6:161' ],
+  }
 
 }

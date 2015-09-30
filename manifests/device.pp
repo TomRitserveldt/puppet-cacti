@@ -24,17 +24,23 @@ define cacti::device (
   $cli_dir     ,
 ) {
 
-case $ensure {
+  case $ensure {
   'present': {
-     exec { "cacti::device::add_device_${description}":
-       command => template('cacti/add_device.erb'),
-       unless  => template('cacti/check_device.erb'),
-     }
+    exec { "cacti::device::add_device_${description}":
+      command => template('cacti/add_device.erb'),
+      unless  => template('cacti/check_device.erb'),
+    }
   }
   'absent': {
-     exec { "cacti::device::remove_device_${description}":
-       command => template('cacti/remove_device.erb'),
-     }
+    exec { "cacti::device::remove_device_${description}":
+    command => template('cacti/remove_device.erb'),
+    }
   }
-}
+  default: {
+    exec { "cacti::device::add_device_${description}":
+      command => template('cacti/add_device.erb'),
+      unless  => template('cacti/check_device.erb'),
+    }
+  }
+  }
 }

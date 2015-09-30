@@ -37,9 +37,9 @@ define cacti::host (
 
   # Make a new device and some default graphs
   cacti::device { $name:
+    ensure       => $ensure,
     ip           => $ip,
     description  => $description,
-    ensure       => $ensure,
     template     => $template,
     notes        => $notes,
     disable      => $disable,

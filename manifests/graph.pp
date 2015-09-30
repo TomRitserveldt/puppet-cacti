@@ -22,6 +22,4 @@ define cacti::graph (
     require => File['/usr/share/cacti/scripts/cactigraph.sh'],
     unless  => template('cacti/check_graph.erb'),
   }
- 
-
 }

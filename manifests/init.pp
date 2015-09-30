@@ -4,7 +4,7 @@
 class cacti(
   $cacti_dir     = $cacti::params::cacti_dir,
   $cli_dir       = $cacti::params::cli_dir,
-  $server        = $cacti::params::server,  
+  $server        = $cacti::params::server,
   $ensure        = $cacti::params::ensure,
   $ip            = $cacti::params::ip,
   $disable       = $cacti::params::disable,
@@ -49,10 +49,10 @@ class cacti(
     source => 'puppet:///modules/cacti/remove_device.php',
   }
 
-  file { "/usr/share/cacti/scripts":
+  file { '/usr/share/cacti/scripts':
     ensure => directory,
   }
-  file { "/usr/share/cacti/scripts/cactigraph.sh":
+  file { '/usr/share/cacti/scripts/cactigraph.sh':
     ensure => present,
     owner  => root,
     mode   => '0755',

@@ -7,7 +7,7 @@ class cacti::server {
   file { "temp import file for cacti conf":
       ensure => file,
       path   => '/usr/share/cacti/conf_templates/test1.sql',
-      source => "puppet:///modules/cacti/test1.sql",
+      content => template('cacti.sql.erb'),
       require => Package["cacti"],
   }->
   ::mysql::db { 'cacti':

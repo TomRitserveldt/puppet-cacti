@@ -22,7 +22,6 @@ define cacti::host (
   $privpass     = $cacti::privpass,
   $privproto    = $cacti::privproto,
   $cli_dir      = $cacti::cli_dir,
-
 ) {
 
   # The base class must be included first because it is used by parameter defaults

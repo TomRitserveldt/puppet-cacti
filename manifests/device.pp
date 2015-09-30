@@ -21,7 +21,7 @@ define cacti::device (
   $authproto   ,
   $privpass    ,
   $privproto   ,
-  $cli_dir
+  $cli_dir     ,
 ) {
 
 case $ensure {

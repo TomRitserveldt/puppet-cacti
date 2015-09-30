@@ -10,7 +10,7 @@ define cacti::graph (
   $snmpquery     = $cacti::snmpquery,
   $snmptype      = $cacti::snmptype,
   $snmpvalue     = $cacti::snmpvalue,
-  $reindexmethod = $cacti::reindexmethod
+  $reindexmethod = $cacti::reindexmethod,
 ) {
 
   if ! defined(Class['cacti']) {

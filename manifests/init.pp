@@ -31,7 +31,7 @@ class cacti(
   $snmpquery     = $cacti::params::snmpquery,
   $snmptype      = $cacti::params::snmptype,
   $snmpvalue     = $cacti::params::snmpvalue,
-  $reindexmethod = $cacti::params::reindexmethod
+  $reindexmethod = $cacti::params::reindexmethod,
 ) inherits cacti::params {
 
   if $server == true {

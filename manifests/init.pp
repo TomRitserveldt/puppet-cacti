@@ -35,7 +35,13 @@ class cacti(
 ) inherits cacti::params {
 
   if $server == true {
-    include cacti::server
+    cacti::server {
+      ensure => 'present',
+    }
+  } else {
+    cacti::server {
+      ensure => 'absent',
+    }
   }
 
   file { "${cli_dir}/remove_device.php":
@@ -45,7 +51,7 @@ class cacti(
 
   file { "/usr/share/cacti/scripts":
     ensure => directory,
-  } ->
+  }
   file { "/usr/share/cacti/scripts/cactigraph.sh":
     ensure => present,
     owner  => root,

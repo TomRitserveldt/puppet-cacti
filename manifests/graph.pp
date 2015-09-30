@@ -17,7 +17,7 @@ define cacti::graph (
     fail('You must include the cacti base class before using any cacti defined resources')
   }
 
-  exec { "add_graph_${host}_${graphtemplate}_${field}":
+  exec { "cacti::graph::add_graph_${host}_${graphtemplate}_${field}":
     command => "/usr/share/cacti/scripts/cactigraph.sh '${host}' ${graphtype} '${graphtemplate}' '${graphtitle}' '${field}' '${snmpquery}' '${snmpqtype}' '${snmpvalue}' '${reindexmethod}'",
     require => File['/usr/share/cacti/scripts/cactigraph.sh'],
     unless  => "/usr/bin/php -q ${cli_dir}/add_tree.php --list-hosts | grep '${host}' | awk '{print \$1}' | xargs -I++ php -q ${cli_dir}/add_tree.php --list-graphs --host-id=++ | grep '${graphtitle}'",

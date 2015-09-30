@@ -58,7 +58,7 @@ define cacti::host (
     privpass     => $privpass,
     privproto    => $privproto,
     cli_dir      => $cli_dir,
-  } ->
+  }
   cacti::graph { "Load Average ${name}":
     host          => $name,
     graphtype     => 'cg',

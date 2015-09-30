@@ -35,11 +35,11 @@ class cacti(
 ) inherits cacti::params {
 
   if $server {
-    class { 'apache::server':
+    class { 'cacti::server':
       ensure => 'present',
     }
-  } elseif !$server {
-    class { 'apache::server':
+  } elsif !$server {
+    class { 'cacti::server':
       ensure => 'absent',
     }
   }

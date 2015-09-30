@@ -2,6 +2,7 @@
 #
 #
 class cacti(
+  $cacti_dir     = $cacti::params::cacti_dir,
   $cli_dir       = $cacti::params::cli_dir,
   $server        = $cacti::params::server,  
   $ensure        = $cacti::params::ensure,

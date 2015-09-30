@@ -15,7 +15,7 @@ class cacti::server(
       ensure  => file,
       path    => '/usr/share/cacti/conf_templates/test1.sql',
       content => template('cacti/cacti.sql.erb'),
-      require => Package['cacti',
+      require => Package['cacti'],
   }
 
   ::mysql::db { 'cacti':

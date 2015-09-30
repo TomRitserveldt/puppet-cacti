@@ -34,11 +34,11 @@ class cacti(
   $reindexmethod = $cacti::params::reindexmethod,
 ) inherits cacti::params {
 
-  if $server == true {
+  if $server {
     class { 'apache::server':
       ensure => 'present',
     }
-  } elseif $server == false {
+  } elseif !$server {
     class { 'apache::server':
       ensure => 'absent',
     }

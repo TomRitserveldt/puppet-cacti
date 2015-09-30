@@ -1,4 +1,6 @@
-class cacti::server {
+class cacti::server(
+  $ensure = $ensure,
+) {
   
   include ::mysql::server
 

@@ -18,9 +18,9 @@ define cacti::graph (
   }
 
   exec { "cacti::graph::add_graph_${host}_${graphtemplate}_${field}":
-    command => "/usr/share/cacti/scripts/cactigraph.sh '${host}' ${graphtype} '${graphtemplate}' '${graphtitle}' '${field}' '${snmpquery}' '${snmpqtype}' '${snmpvalue}' '${reindexmethod}'",
+    command => template('cacti/add_graph.erb'),
     require => File['/usr/share/cacti/scripts/cactigraph.sh'],
-    unless  => "/usr/bin/php -q ${cli_dir}/add_tree.php --list-hosts | grep '${host}' | awk '{print \$1}' | xargs -I++ php -q ${cli_dir}/add_tree.php --list-graphs --host-id=++ | grep '${graphtitle}'",
+    unless  => template('cacti/check_graph.erb'),
   }
  
 

@@ -1,5 +1,125 @@
 # Class:: cacti
 #
+# This class handles installing and configuring the cacti server.
+#
+# === Parameters:
+# [*cacti_dir*]  
+#   The base location where cacti is installed, only change this if you specifically installed 
+#   cacti to another location.   
+#   Default: '/usr/share/cacti'
+#
+# [*cli_dir*]
+#   The base location for cacti cli files, this is usually a cli folder in the base dir.
+#   You should'nt change this unless you moved to another folder, 
+#   or want to use your own cli directory.
+#   Default: ${cacti_dir}/cli
+#
+# [* server *]
+#   Default:  false
+#
+# [* ensure *]
+#   Default:  'present'
+#
+# [* ip *]
+#   Default:  none
+#
+# [* disable *]
+#   Default:  0
+#
+# [* description *]
+#   Default:  none
+#
+# [* template *]
+#   Default:  none
+#
+# [* notes *]
+#   Default:  none
+#
+# [* avail *]
+#   Default:  'snmp'
+#
+# [* ping_method *]
+#   Default:  'tcp'
+#
+# [* ping_port *]
+#   Default:  161
+#
+# [* ping_retries *]
+#   Default:  2
+#
+# [* version *]
+#   Default:  2
+#
+# [* port *]
+#   Default:  161
+#
+# [* timeout *]
+#   Default:  500
+#
+# [* community *]
+#   Default:  'mgmtcacti'
+#
+# [* username *]
+#   Default:  none
+#
+# [* password *]
+#   Default:  none
+#
+# [* authproto *]
+#   Default:  none
+#
+# [* privpass *]
+#   Default:  none
+#
+# [* privproto *]
+#   Default:  none
+#
+# [* host *]
+#   Default:  none
+#
+# [* graphtype *]
+#   Default:  none
+#
+# [* graphtemplate *]
+#   Default:  none
+#
+# [* field *]
+#   Default:  none
+#
+# [* snmpquery *]
+#   Default:  none
+#
+# [* snmptype *]
+#   Default:  none
+#
+# [* snmpvalue *]
+#   Default:  none
+#
+# [* reindexmethod *]
+#   Default:  none
+#
+# === Actions:
+#
+# Installs the cacti package, service, and configuration when server is true.
+# adds new hosts and graphs to cacti
+#
+# === Requires:
+#
+# snmp module: razorsedge/puppet-snmp 
+# mysql module
+#
+# === Sample Usage:
+#
+#  install and configure a cacti server
+#  class { '::cacti':
+#    server => true,
+#  }
+#  
+#  add a new host to the cacti server
+#  @@cacti::host { 'cacti-master':
+#    ip       => '192.168.50.33',
+#    template => 'Local Linux Machine',  
+#  }
 #
 class cacti(
   $cacti_dir     = $cacti::params::cacti_dir,

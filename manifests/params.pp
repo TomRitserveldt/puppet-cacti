@@ -32,5 +32,6 @@ class cacti::params {
   $snmptype      = ''
   $snmpvalue     = ''
   $reindexmethod = ''
+  $filename      = undef
 } # Class:: cacti::params
 

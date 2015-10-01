@@ -166,6 +166,7 @@ class cacti(
   $snmptype      = $cacti::params::snmptype,
   $snmpvalue     = $cacti::params::snmpvalue,
   $reindexmethod = $cacti::params::reindexmethod,
+  $filename      = $cacti::params::filename,
 ) inherits cacti::params {
 
   if $server {

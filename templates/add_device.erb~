@@ -1,5 +1,5 @@
 /usr/bin/php -q <%= @cli_dir %>/add_device.php --list-host-templates \
-| grep '<%= @template %>' | awk '{print \$1 }' | xargs -I++ php -q <%= @cli_dir %>/add_device.php \
+| grep '<%= @template %>' | awk '{print \$1 %>' | xargs -I++ php -q <%= @cli_dir %>/add_device.php \
 --description='<%= @description %>' --ip=<%= @ip %> --template=++ --notes='<%= @notes %>' --disable=<%= @disable %> \
 --avail=<%= @avail %> --ping_method=<%= @ping_method %> --ping_port=<%= @ping_port %> --ping_retries=<%= @ping_retries %> \
 --version=<%= @version %> --port=<%= @port %> --timeout=<%= @timeout %> --community=<%= @community %> --username='<%= @username %>' \

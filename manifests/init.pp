@@ -1,6 +1,9 @@
 # Class:: cacti
 #
 # This class handles installing and configuring the cacti server.
+# You can add new hosts and graphs with this module by using resources (cacti::host , cacti::graph).
+#
+# See below for examples
 #
 # === Parameters:
 # [*cacti_dir*]  
@@ -15,21 +18,28 @@
 #   Default: ${cacti_dir}/cli
 #
 # [* server *]
+#   Wether or not to install the cacti server, set to true to install cacti.
 #   Default:  false
 #
 # [* ensure *]
+#   This is used for the host resource to determine if a host should be made and be present or not. 
+#   If set to 'absent' it will remove the host (device + graphs) from cacti.
 #   Default:  'present'
 #
 # [* ip *]
+#   This is the ip address of the host to add in cacti.
 #   Default:  none
 #
 # [* disable *]
+#   Disables a host in cacti. (but it is not removed)
 #   Default:  0
 #
 # [* description *]
+#   Name or description of the resource in cacti.
 #   Default:  none
 #
 # [* template *]
+#   Name of the template required to add the new host to cacti.
 #   Default:  none
 #
 # [* notes *]
@@ -57,12 +67,15 @@
 #   Default:  500
 #
 # [* community *]
+#   snmp community
 #   Default:  'mgmtcacti'
 #
 # [* username *]
+#   snmp username
 #   Default:  none
 #
 # [* password *]
+#   snmp password
 #   Default:  none
 #
 # [* authproto *]
@@ -81,6 +94,7 @@
 #   Default:  none
 #
 # [* graphtemplate *]
+#   Name of the template required to add the new graph to cacti.
 #   Default:  none
 #
 # [* field *]

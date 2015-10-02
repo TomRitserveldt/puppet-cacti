@@ -3,6 +3,12 @@
 # This class handles installing and configuring the cacti server.
 # You can add new hosts and graphs with this module by using resources (cacti::host , cacti::graph).
 #
+# When adding a new host or device you can assign it to an existing tree in cacti, this is done when defining 
+# the new host.
+#
+# You can also add new trees in cacti by using the cacti::tree resource. You can re-assign hosts defined in puppet(with exported resources) to another tree.
+#
+#
 # See below for examples
 #
 # === Parameters:

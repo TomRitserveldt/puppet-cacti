@@ -173,6 +173,12 @@ class cacti(
   $snmpvalue     = $cacti::params::snmpvalue,
   $reindexmethod = $cacti::params::reindexmethod,
   $filename      = $cacti::params::filename,
+  $tree_type     = $cacti::params::tree_type,
+  $sort_method   = $cacti::params::sort_method,
+  $tree_id       = $cacti::params::tree_id,
+  $node_type     = $cacti::params::node_type,
+  $parent_node   = $cacti::params::parent_node,
+  $host_group_s  = $cacti::params::host_group_s,
 ) inherits cacti::params {
 
   if $server {
@@ -198,6 +204,13 @@ class cacti(
     owner  => root,
     mode   => '0755',
     source => 'puppet:///modules/cacti/cactigraph.sh',
+  }
+
+file { '/usr/share/cacti/scripts/cactitree.sh':
+    ensure => present,
+    owner  => root,
+    mode   => '0755',
+    source => 'puppet:///modules/cacti/cactitree.sh',
   }
   
   class { '::snmp':

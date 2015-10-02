@@ -22,6 +22,10 @@ define cacti::host (
   $privpass     = $cacti::privpass,
   $privproto    = $cacti::privproto,
   $cli_dir      = $cacti::cli_dir,
+  $tree_id      = $cacti::tree_id,
+  $node_type    = $cacti::node_type,
+  $parent_node  = $cacti::parent_node,
+  $host_group_s = $cacti::host_group_s,
 ) {
 
   # The base class must be included first because it is used by parameter defaults
@@ -57,6 +61,10 @@ define cacti::host (
     privpass     => $privpass,
     privproto    => $privproto,
     cli_dir      => $cli_dir,
+    tree_id      => $tree_id,
+    node_type    => $node_type,
+    parent_node  => $parent_node,
+    host_group_s => $host_group_s,
   }
   cacti::graph { "Load Average ${name}":
     host          => $name,

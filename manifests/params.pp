@@ -33,5 +33,11 @@ class cacti::params {
   $snmpvalue     = ''
   $reindexmethod = ''
   $filename      = undef
+  $tree_type     = 'tree'
+  $sort_method   = 'numeric',
+  $tree_id       = undef,
+  $node_type     = 'host'
+  $parent_node   = '',
+  $host_group_s  = '1',
 } # Class:: cacti::params
 

@@ -1,1 +1,0 @@
-/usr/share/cacti/scripts/cactigraph.sh '<%= @host %>' <%= @graphtype %> '<%= @graphtemplate %>' '<%= @graphtitle %>' '<%= @field %>' '<%= @snmpquery %>' '<%= @snmpqtype %>' '<%= @snmpvalue %>' '<%= @reindexmethod %>

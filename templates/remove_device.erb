@@ -1,1 +1,1 @@
-/usr/bin/php -q <%= @cli_dir %>/remove_device.php --list-devices | grep '<%= @description %>' | awk '{print \$1 }' | xargs -I++ php -q <%= @cli_dir %>/remove_device.php --device_id=++
+/usr/bin/php -q <%= @cli_dir %>/remove_device.php --list-devices | grep '<%= @description %>' | awk '{print $1 }' | xargs -I++ php -q <%= @cli_dir %>/remove_device.php --device_id=++

@@ -11,8 +11,8 @@ define cacti::tree (
   }
 
   exec { "cacti::tree::add_tree_${name}":
-    command => "php -q ${cli_dir}add_tree.php --type=${tree_type} --name=${name} --sort-method=${sort_method}",
-    unless  => "php -q ${cli_dir}add_tree.php --list-trees | grep ${name}",
+    command => "/usr/bin/php -q ${cli_dir}add_tree.php --type=${tree_type} --name=${name} --sort-method=${sort_method}",
+    unless  => "/usr/bin/php -q ${cli_dir}add_tree.php --list-trees | grep ${name}",
   }
 }
 

@@ -26,6 +26,7 @@ define cacti::host (
   $node_type    = $cacti::node_type,
   $parent_node  = $cacti::parent_node,
   $host_group_s = $cacti::host_group_s,
+  $cacti_dir    = $cacti::cacti_dir,
 ) {
 
   # The base class must be included first because it is used by parameter defaults

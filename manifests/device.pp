@@ -1,6 +1,7 @@
 # == Definition: cacti::device
 #
 define cacti::device (
+  $cacti_dir   ,
   $ip          ,
   $ensure      ,
   $disable     ,

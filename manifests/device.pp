@@ -26,7 +26,7 @@ define cacti::device (
   $tree_id     ,
   $parent_node ,
   $host_group_s,
-  $host_id     ,
+  $host_id = $name    ,
 ) {
 
   case $ensure {

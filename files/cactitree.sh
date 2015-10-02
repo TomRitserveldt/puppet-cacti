@@ -12,4 +12,3 @@ basecmd="php -q /usr/share/cacti/cli/add_tree.php --type=$1 --node-type=$2 --tre
       basecmd="$basecmd --host-group-style=\"$6\""
     fi
     eval $basecmd
-    ;;

@@ -66,6 +66,7 @@ define cacti::host (
     node_type    => $node_type,
     parent_node  => $parent_node,
     host_group_s => $host_group_s,
+    cacti_dir    => $cacti_dir,
   }
   cacti::graph { "Load Average ${name}":
     host          => $name,

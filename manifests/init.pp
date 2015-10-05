@@ -130,16 +130,21 @@
 #
 # === Sample Usage:
 #
-#  install and configure a cacti server
 #  class { '::cacti':
-#    server => true,
+#    server     => true,
+#    community  => 'mgmtcacti1',
+#    ro_network => '192.168.0.0/16',
 #  }
-#  
-#  add a new host to the cacti server
-#  @@cacti::host { 'cacti-master':
+#  cacti::tree { 'testTree':
+#    sort_method => 'numeric',
+#  }
+#  cacti::host { 'cacti-master':
 #    ip       => '192.168.50.33',
-#    template => 'Local Linux Machine',  
+#    template => 'Local Linux Machine',
+#    tree_id  => 'test',
+#    require  => Cacti::Tree['testTree'],
 #  }
+#
 #
 class cacti(
   $cacti_dir     = $cacti::params::cacti_dir,

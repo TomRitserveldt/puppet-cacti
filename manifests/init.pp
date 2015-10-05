@@ -67,13 +67,14 @@
 #   Default:  2
 #
 # [* port *]
+#   The port used for snmp
 #   Default:  161
 #
 # [* timeout *]
 #   Default:  500
 #
 # [* community *]
-#   snmp community
+#   snmp community to use
 #   Default:  'mgmtcacti'
 #
 # [* username *]
@@ -97,10 +98,11 @@
 #   Default:  none
 #
 # [* graphtype *]
+#   the graph type you want to add,possible values are cg or ds.
 #   Default:  none
 #
 # [* graphtemplate *]
-#   Name of the template required to add the new graph to cacti.
+#   Name of the graph template required to add the new graph to cacti.
 #   Default:  none
 #
 # [* field *]
@@ -118,11 +120,43 @@
 # [* reindexmethod *]
 #   Default:  none
 #
+# [* filename *]
+#  In order to import a template, specify the template filename( this should be located in cacti_basedir/scripts/* )
+#  Default: none
+#
+# [* tree_type *]
+#  you should not change this, since you will automatically use the node tree type when you add a new device.
+#  Default: tree
+#
+# [* sort_method *]
+#  The desired sort method for the new tree, options are: [manual|alpha|natural|numeric]
+#  Default: numeric
+#
+# [* tree_id *]
+#  the name or id of the tree you want to assign a host to.
+#  Default: none
+#
+# [* node_type *]
+#  the type of node you want to assign to a tree, options are:[header|host|graph]
+#  Default: host
+#
+# [* parent_node *]
+#  the id of the parent node.
+#  Default: none
+#
+# [* host_group_s *]
+#  The host group style, options are: [1: graph template,2: data query index]
+#  Default: none
+#
+# [* ro_network *]  
+#  The network address for snmp
+#  Default: 192.168.0.0/16
+#
 # === Actions:
 #
 # Installs the cacti package, service, and configuration when server is true.
-# adds new hosts and graphs to cacti
-#
+# adds new hosts, trees and graphs to cacti
+# 
 # === Requires:
 #
 # snmp module: razorsedge/puppet-snmp 

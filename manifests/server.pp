@@ -28,8 +28,8 @@ class cacti::server(
   require        => File['temp import file for cacti conf'],
   }
 
-  Cacti::Tree <<| title != undef |>>
-  Cacti::Host <<| title != undef |>>
-  Cacti::Device <<| title != undef |>>
-  Cacti::Graph <<| title != undef |>>
+  Cacti::Tree <<| |>>
+  Cacti::Host <<| |>>
+  Cacti::Device <<| |>>
+  Cacti::Graph <<| |>>
 }

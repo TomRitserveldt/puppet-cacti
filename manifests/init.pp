@@ -255,8 +255,8 @@ file { '/usr/share/cacti/scripts/cactitree.sh':
   
   class { '::snmp':
     agentaddress => [ 'udp:161', 'udp6:161' ],
-    ro_community => "${community}",
-    ro_network   => "${ro_network}",
+    ro_community => $community,
+    ro_network   => $ro_network,
   }
 
 }

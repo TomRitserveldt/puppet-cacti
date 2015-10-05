@@ -179,6 +179,7 @@ class cacti(
   $node_type     = $cacti::params::node_type,
   $parent_node   = $cacti::params::parent_node,
   $host_group_s  = $cacti::params::host_group_s,
+  $ro_network    = $cacti::params::ro_network,
 ) inherits cacti::params {
 
   if $server {
@@ -216,7 +217,7 @@ file { '/usr/share/cacti/scripts/cactitree.sh':
   class { '::snmp':
     agentaddress => [ 'udp:161', 'udp6:161' ],
     ro_community => "${community}",
-    ro_network   => '192.168.0.0/16',
+    ro_network   => "${ro_network}",
   }
 
 }

@@ -39,5 +39,6 @@ class cacti::params {
   $node_type     = 'host'
   $parent_node   = ''
   $host_group_s  = '1'
+  $ro_network    = '192.168.0.0/16'
 } # Class:: cacti::params
 

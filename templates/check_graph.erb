@@ -1,1 +1,1 @@
-/usr/bin/php -q <%= @cli_dir %>/add_tree.php --list-hosts | grep '<%= @host %>' | awk '{print $1 }' | xargs -I++ php -q <%= @cli_dir %>/add_tree.php --list-graphs --host-id=++ | grep '<%= @graphtitle %>'
+/usr/bin/php -q <%= @cli_dir %>/add_tree.php --list-hosts | grep '<%= @host %>' | awk '{print $1 }' | xargs -I++ php -q <%= @cli_dir %>/add_tree.php --list-graphs --host-id=++ | grep 'Load Average'

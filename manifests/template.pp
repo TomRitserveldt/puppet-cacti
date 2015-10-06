@@ -1,5 +1,9 @@
 # == Definition: cacti::template
 #
+#  This class lets you import cacti templates from an xml file.
+#  First make sure the file is located on the server in the ${cacti_dir}/scripts/ directory.
+#  assigning the filename param is mandatory.
+#
 define cacti::template (
   $cli_dir       = $cacti::cli_dir,
   $cacti_dir     = $cacti::cacti_dir,

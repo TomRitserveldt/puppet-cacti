@@ -52,6 +52,7 @@
 #   Default:  none
 #
 # [*avail*]
+#   How cacti checks host availability (snmp is the default here).
 #   Default:  'snmp'
 #
 # [*ping_method*]
@@ -64,6 +65,7 @@
 #   Default:  2
 #
 # [*version*]
+#   The snmp version to use
 #   Default:  2
 #
 # [*port*]

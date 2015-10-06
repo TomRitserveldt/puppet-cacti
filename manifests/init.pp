@@ -23,132 +23,132 @@
 #   or want to use your own cli directory.
 #   Default: ${cacti_dir}/cli
 #
-# [* server *]
+# [*server*]
 #   Wether or not to install the cacti server, set to true to install cacti.
 #   Default:  false
 #
-# [* ensure *]
+# [*ensure*]
 #   This is used for the host resource to determine if a host should be made and be present or not. 
 #   If set to 'absent' it will remove the host (device + graphs) from cacti.
 #   Default:  'present'
 #
-# [* ip *]
+# [*ip*]
 #   This is the ip address of the host to add in cacti.
 #   Default:  none
 #
-# [* disable *]
+# [*disable*]
 #   Disables a host in cacti. (but it is not removed)
 #   Default:  0
 #
-# [* description *]
+# [*description*]
 #   Name or description of the resource in cacti.
 #   Default:  none
 #
-# [* template *]
+# [*template*]
 #   Name of the template required to add the new host to cacti.
 #   Default:  none
 #
-# [* notes *]
+# [*notes*]
 #   Default:  none
 #
-# [* avail *]
+# [*avail*]
 #   Default:  'snmp'
 #
-# [* ping_method *]
+# [*ping_method*]
 #   Default:  'tcp'
 #
-# [* ping_port *]
+# [*ping_port*]
 #   Default:  161
 #
-# [* ping_retries *]
+# [*ping_retries*]
 #   Default:  2
 #
-# [* version *]
+# [*version*]
 #   Default:  2
 #
-# [* port *]
+# [*port*]
 #   The port used for snmp
 #   Default:  161
 #
-# [* timeout *]
+# [*timeout*]
 #   Default:  500
 #
-# [* community *]
+# [*community*]
 #   snmp community to use
 #   Default:  'mgmtcacti'
 #
-# [* username *]
+# [*username*]
 #   snmp username
 #   Default:  none
 #
-# [* password *]
+# [*password*]
 #   snmp password
 #   Default:  none
 #
-# [* authproto *]
+# [*authproto*]
 #   Default:  none
 #
-# [* privpass *]
+# [*privpass*]
 #   Default:  none
 #
-# [* privproto *]
+# [*privproto*]
 #   Default:  none
 #
-# [* host *]
+# [*host*]
 #   Default:  none
 #
-# [* graphtype *]
+# [*graphtype*]
 #   the graph type you want to add,possible values are cg or ds.
 #   Default:  none
 #
-# [* graphtemplate *]
+# [*graphtemplate*]
 #   Name of the graph template required to add the new graph to cacti.
 #   Default:  none
 #
-# [* field *]
+# [*field*]
 #   Default:  none
 #
-# [* snmpquery *]
+# [*snmpquery*]
 #   Default:  none
 #
-# [* snmptype *]
+# [*snmptype*]
 #   Default:  none
 #
-# [* snmpvalue *]
+# [*snmpvalue*]
 #   Default:  none
 #
-# [* reindexmethod *]
+# [*reindexmethod*]
 #   Default:  none
 #
-# [* filename *]
+# [*filename*]
 #  In order to import a template, specify the template filename( this should be located in cacti_basedir/scripts/* )
 #  Default: none
 #
-# [* tree_type *]
+# [*tree_type*]
 #  you should not change this, since you will automatically use the node tree type when you add a new device.
 #  Default: tree
 #
-# [* sort_method *]
+# [*sort_method*]
 #  The desired sort method for the new tree, options are: [manual|alpha|natural|numeric]
 #  Default: numeric
 #
-# [* tree_id *]
+# [*tree_id*]
 #  the name or id of the tree you want to assign a host to.
 #  Default: none
 #
-# [* node_type *]
+# [*node_type*]
 #  the type of node you want to assign to a tree, options are:[header|host|graph]
 #  Default: host
 #
-# [* parent_node *]
+# [*parent_node*]
 #  the id of the parent node.
 #  Default: none
 #
-# [* host_group_s *]
+# [*host_group_s*]
 #  The host group style, options are: [1: graph template,2: data query index]
 #  Default: none
 #
-# [* ro_network *]  
+# [*ro_network*]
 #  The network address for snmp
 #  Default: 192.168.0.0/16
 #

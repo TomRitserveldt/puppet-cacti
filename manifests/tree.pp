@@ -1,4 +1,17 @@
 # Class Definition: cacti::tree
+# [*cli_dir*]
+#   The base location for cacti cli files, this is usually a cli folder in the base dir.
+#   You should'nt change this unless you moved to another folder,
+#   or want to use your own cli directory.
+#   Default: ${cacti_dir}/cli
+#
+# [*tree_type*]
+#  you should not change this, since you will automatically use the node tree type when you add a new device.
+#  Default: tree
+#
+# [*sort_method*]
+#  The desired sort method for the new tree, options are: [manual|alpha|natural|numeric]
+#  Default: numeric
 #
 define cacti::tree (
   $cli_dir       = $cacti::cli_dir,

@@ -3,7 +3,7 @@
 # This class handles installing and configuring the cacti server.
 # You can add new hosts and graphs with this module by using resources (cacti::host , cacti::graph).
 #
-# When adding a new host or device you can assign it to an existing tree in cacti, this is done when defining 
+# When adding a new host or device you can assign it to an existing tree in cacti, this is done when defining
 # the new host.
 #
 # You can also add new trees in cacti by using the cacti::tree resource. You can re-assign hosts defined in puppet(with exported resources) to another tree.
@@ -12,14 +12,14 @@
 # See below for examples
 #
 # === Parameters:
-# [*cacti_dir*]  
-#   The base location where cacti is installed, only change this if you specifically installed 
-#   cacti to another location.   
+# [*cacti_dir*]
+#   The base location where cacti is installed, only change this if you specifically installed
+#   cacti to another location.
 #   Default: '/usr/share/cacti'
 #
 # [*cli_dir*]
 #   The base location for cacti cli files, this is usually a cli folder in the base dir.
-#   You should'nt change this unless you moved to another folder, 
+#   You should'nt change this unless you moved to another folder,
 #   or want to use your own cli directory.
 #   Default: ${cacti_dir}/cli
 #
@@ -28,7 +28,7 @@
 #   Default:  false
 #
 # [*ensure*]
-#   This is used for the host resource to determine if a host should be made and be present or not. 
+#   This is used for the host resource to determine if a host should be made and be present or not.
 #   If set to 'absent' it will remove the host (device + graphs) from cacti.
 #   Default:  'present'
 #
@@ -158,10 +158,10 @@
 #
 # Installs the cacti package, service, and configuration when server is true.
 # adds new hosts, trees and graphs to cacti
-# 
+#
 # === Requires:
 #
-# snmp module: razorsedge/puppet-snmp 
+# snmp module: razorsedge/puppet-snmp
 # mysql module
 #
 # === Sample Usage:
@@ -224,37 +224,44 @@ class cacti(
 ) inherits cacti::params {
 
   if $server {
-    class { 'cacti::server':
+    class { '::cacti::server':
       ensure => 'present',
     }
   } elsif !$server {
-    class { 'cacti::server':
+    class { '::cacti::server':
       ensure => 'absent',
     }
   }
 
   file { "${cli_dir}/remove_device.php":
-    ensure => present,
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
     source => 'puppet:///modules/cacti/remove_device.php',
   }
 
   file { '/usr/share/cacti/scripts':
     ensure => directory,
-  }
-  file { '/usr/share/cacti/scripts/cactigraph.sh':
-    ensure => present,
     owner  => root,
     mode   => '0755',
+  }
+  file { '/usr/share/cacti/scripts/cactigraph.sh':
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
     source => 'puppet:///modules/cacti/cactigraph.sh',
   }
 
-file { '/usr/share/cacti/scripts/cactitree.sh':
-    ensure => present,
+  file { '/usr/share/cacti/scripts/cactitree.sh':
+    ensure => file,
     owner  => root,
     mode   => '0755',
+    group  => root,
     source => 'puppet:///modules/cacti/cactitree.sh',
   }
-  
+
   class { '::snmp':
     agentaddress => [ 'udp:161', 'udp6:161' ],
     ro_community => $community,

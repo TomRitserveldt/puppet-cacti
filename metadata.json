@@ -1,0 +1,14 @@
+{
+  "name": "vrt/cacti",
+  "version": "0.1.0",
+  "author": "vrt",
+  "summary": "Cacti",
+  "license": "Apache-2.0",
+  "source": "http://atlas.vrt.be/stash/projects/PUP/repos/dpcops-cacti",
+  "project_page": "http://atlas.vrt.be/stash/projects/PUP/repos/dpcops-cacti",
+  "issues_url": "http://atlas.vrt.be/stash/projects/PUP/repos/dpcops-cacti",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

@@ -29,6 +29,34 @@ class cacti::server(
     import_timeout => 900,
     require        => File['temp import file for cacti conf'],
   }
+file { "${cli_dir}/remove_device.php":
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
+    source => 'puppet:///modules/cacti/remove_device.php',
+  }
+
+  file { '/usr/share/cacti/scripts':
+    ensure => directory,
+    owner  => root,
+    mode   => '0755',
+  }
+  file { '/usr/share/cacti/scripts/cactigraph.sh':
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
+    source => 'puppet:///modules/cacti/cactigraph.sh',
+  }
+
+  file { '/usr/share/cacti/scripts/cactitree.sh':
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
+    source => 'puppet:///modules/cacti/cactitree.sh',
+  }
 
   Cacti::Tree <<| |>>
   Cacti::Host <<| |>>

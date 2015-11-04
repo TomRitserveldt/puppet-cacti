@@ -13,9 +13,42 @@ class cacti::server(
     ensure => $ensure,
   }
 
+  file { [
+      "${::cacti::cacti_dir}/scripts",
+      "${::cacti::cacti_dir}/conf_templates",
+      ]:
+    ensure => directory,
+    owner  => root,
+    mode   => '0755',
+  }
+
+  file { "${::cacti::cli_dir}/remove_device.php":
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
+    source => 'puppet:///modules/cacti/remove_device.php',
+  }
+
+  file { "${::cacti::cacti_dir}/scripts/cactigraph.sh":
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
+    source => 'puppet:///modules/cacti/cactigraph.sh',
+  }
+
+  file { "${::cacti::cacti_dir}/scripts/cactitree.sh":
+    ensure => file,
+    owner  => root,
+    mode   => '0755',
+    group  => root,
+    source => 'puppet:///modules/cacti/cactitree.sh',
+  }
+
   file { 'temp import file for cacti conf':
     ensure  => file,
-    path    => '/usr/share/cacti/conf_templates/test1.sql',
+    path    => "${::cacti::cacti_dir}/conf_templates/test1.sql",
     content => template('cacti/cacti.sql.erb'),
     require => Package['cacti'],
   }
@@ -25,37 +58,9 @@ class cacti::server(
     password       => '',
     host           => 'localhost',
     grant          => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'DROP'],
-    sql            => '/usr/share/cacti/conf_templates/test1.sql',
+    sql            => "${::cacti::cacti_dir}/conf_templates/test1.sql",
     import_timeout => 900,
     require        => File['temp import file for cacti conf'],
-  }
-file { "${cli_dir}/remove_device.php":
-    ensure => file,
-    owner  => root,
-    mode   => '0755',
-    group  => root,
-    source => 'puppet:///modules/cacti/remove_device.php',
-  }
-
-  file { '/usr/share/cacti/scripts':
-    ensure => directory,
-    owner  => root,
-    mode   => '0755',
-  }
-  file { '/usr/share/cacti/scripts/cactigraph.sh':
-    ensure => file,
-    owner  => root,
-    mode   => '0755',
-    group  => root,
-    source => 'puppet:///modules/cacti/cactigraph.sh',
-  }
-
-  file { '/usr/share/cacti/scripts/cactitree.sh':
-    ensure => file,
-    owner  => root,
-    mode   => '0755',
-    group  => root,
-    source => 'puppet:///modules/cacti/cactitree.sh',
   }
 
   Cacti::Tree <<| |>>

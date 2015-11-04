@@ -2,16 +2,29 @@ require 'spec_helper_acceptance'
 
 describe 'cacti class' do
   describe 'running puppet code' do
-    it 'should work with no errors' do
-      pp = <<-EOS
+    it 'should work with no errors on server' do
+      server_pp = <<-EOS
         class { '::cacti':
           server => true,
         }
       EOS
 
+      on 'server',  apply_manifest(server_pp, :catch_failures => true) do
       # Run it twice and test for idempotency
-      apply_manifest(pp, :catch_failures => true)
-      expect(apply_manifest(pp, :catch_failures => true).exit_code).to be_zero
+        expect(apply_manifest(server_pp, :catch_failures => true).exit_code).to be_zero
+      end
+    end
+    it 'should work with no errors on client' do
+      client_pp = <<-EOS
+        class { '::cacti':
+          server => false,
+        }
+      EOS
+
+      on 'client',  apply_manifest(client_pp, :catch_failures => true) do
+      # Run it twice and test for idempotency
+        expect(apply_manifest(client_pp, :catch_failures => true).exit_code).to be_zero
+      end
     end
   end
 end

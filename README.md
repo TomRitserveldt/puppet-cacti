@@ -109,6 +109,9 @@ bundle exec rake validate
 ```
 BEAKER_destroy=no bundle exec rake beaker
 ```
+```
+BEAKER_destroy=no BEAKER_provision=no bundle exec rake beaker
+```
 
 ###beaker-rspec Details
 

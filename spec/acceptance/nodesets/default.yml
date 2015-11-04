@@ -1,7 +1,15 @@
 HOSTS:
-  debian-78-x64:
+  debian-78-x64-server:
     roles:
-      - master
+      - default
+      - server
+    platform: debian-7-amd64
+    box: puppetlabs/debian-7.8-64-nocm
+    box_url: https://vagrantcloud.com/puppetlabs/boxes/debian-7.8-64-nocm
+    hypervisor: vagrant
+  debian-78-x64-client:
+    roles:
+      - client
     platform: debian-7-amd64
     box: puppetlabs/debian-7.8-64-nocm
     box_url: https://vagrantcloud.com/puppetlabs/boxes/debian-7.8-64-nocm

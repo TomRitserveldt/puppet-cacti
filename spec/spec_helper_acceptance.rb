@@ -1,5 +1,5 @@
 require 'beaker-rspec'
-# require 'pry'
+require 'pry'
 
 hosts.each do |host|
   # Install Puppet

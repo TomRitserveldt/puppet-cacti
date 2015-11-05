@@ -227,10 +227,6 @@ class cacti(
     class { '::cacti::server':
       ensure => 'present',
     }
-  } elsif !$server {
-    class { '::cacti::server':
-      ensure => 'absent',
-    }
   }
 
   class { '::snmp':
@@ -238,5 +234,4 @@ class cacti(
     ro_community => $community,
     ro_network   => $ro_network,
   }
-
 }

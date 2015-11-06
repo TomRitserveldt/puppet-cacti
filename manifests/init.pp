@@ -21,7 +21,7 @@
 #   The base location for cacti cli files, this is usually a cli folder in the base dir.
 #   You should'nt change this unless you moved to another folder,
 #   or want to use your own cli directory.
-#   Default: ${cacti_dir}/cli
+#   Default: ${install_dir}/cli
 #
 # [*server*]
 #   Wether or not to install the cacti server, set to true to install cacti.
@@ -154,6 +154,30 @@
 #  The network address for snmp
 #  Default: 192.168.0.0/16
 #
+# [*db_type*]
+#  Used database type
+#  Default: mysql
+#
+# [*db_name*]
+#  Database name
+#  Default: cacti
+#
+# [*db_user*]
+#  Database username
+#  Default: cacti
+#
+# [*db_host*]
+#  Database host
+#  Default: localhost
+#
+# [*db_port*]
+#  Database port
+#  Default: 3306
+#
+# [*db_password*]
+#  Database password for db_user
+#  Default: none, generated
+#
 # === Actions:
 #
 # Installs the cacti package, service, and configuration when server is true.
@@ -221,6 +245,12 @@ class cacti(
   $parent_node   = $cacti::params::parent_node,
   $host_group_s  = $cacti::params::host_group_s,
   $ro_network    = $cacti::params::ro_network,
+  $db_type       = $cacti::params::db_type,
+  $db_name       = $cacti::params::db_name,
+  $db_user       = $cacti::params::db_user,
+  $db_host       = $cacti::params::db_host,
+  $db_port       = $cacti::params::db_port,
+  $db_password   = $cacti::params::db_password,
 ) inherits cacti::params {
 
   if $server {

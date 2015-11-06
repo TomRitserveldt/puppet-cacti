@@ -40,5 +40,10 @@ class cacti::params {
   $parent_node   = undef
   $host_group_s  = '1'
   $ro_network    = '192.168.0.0/16'
+  $db_type       = 'mysql'
+  $db_name       = 'cacti'
+  $db_user       = 'cacti'
+  $db_host       = 'localhost'
+  $db_port       = '3306'
+  $db_password   = undef
 } # Class:: cacti::params
-

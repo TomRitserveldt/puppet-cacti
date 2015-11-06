@@ -12,6 +12,11 @@ describe 'cacti class' do
       on 'server',  apply_manifest(server_pp, :catch_failures => true) do
       # Run it twice and test for idempotency
         expect(apply_manifest(server_pp, :catch_failures => true).exit_code).to be_zero
+
+        # expect(File).to exist('/usr/share/cacti/cli/remove_device.php')
+
+        # File.read("/path/to/file").should match "content"
+        # File.read("/path/to/file").should include "content"
       end
     end
     it 'should work with no errors on client' do

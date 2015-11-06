@@ -1,7 +1,7 @@
 #!/bin/bash
 >> /tmp/cactiversion.log 2>&1
 set -x
-version=$(grep 'config\["cacti_version"\] = ' /usr/share/cacti/site/include/global.php | awk '{print $3}' | grep -o '".*"' | sed 's/"//g')
+version=$(grep 'config\["cacti_version"\] = ' <%= @install_dir %>/site/include/global.php | awk '{print $3}' | grep -o '".*"' | sed 's/"//g')
 
 mysql cacti << EOF
 DROP TABLE IF EXISTS version;

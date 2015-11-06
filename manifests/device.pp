@@ -1,7 +1,7 @@
 # == Definition: cacti::device
 #
 # === Parameters:
-# [*cacti_dir*]
+# [*install_dir*]
 #   The base location where cacti is installed, only change this if you specifically installed
 #   cacti to another location.
 #   Default: '/usr/share/cacti'
@@ -10,7 +10,7 @@
 #   The base location for cacti cli files, this is usually a cli folder in the base dir.
 #   You should'nt change this unless you moved to another folder,
 #   or want to use your own cli directory.
-#   Default: ${cacti_dir}/cli
+#   Default: ${install_dir}/cli
 #
 # [*server*]
 #   Wether or not to install the cacti server, set to true to install cacti.
@@ -144,7 +144,7 @@
 #  Default: $name
 #
 define cacti::device (
-  $cacti_dir   ,
+  $install_dir   ,
   $ip          ,
   $ensure      ,
   $disable     ,

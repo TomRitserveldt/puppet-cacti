@@ -2,8 +2,8 @@
 #
 #
 class cacti::params {
-  $cacti_dir     = '/usr/share/cacti'
-  $cli_dir       = "${cacti_dir}/cli"
+  $install_dir   = '/usr/share/cacti'
+  $cli_dir       = "${install_dir}/cli"
   $server        = false
   $ensure        = 'present'
   $ip            = undef

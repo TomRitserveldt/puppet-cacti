@@ -1,6 +1,6 @@
 # == Definition: cacti::host
 # === Parameters:
-# [*cacti_dir*]
+# [*install_dir*]
 #   The base location where cacti is installed, only change this if you specifically installed
 #   cacti to another location.
 #   Default: '/usr/share/cacti'
@@ -9,7 +9,7 @@
 #   The base location for cacti cli files, this is usually a cli folder in the base dir.
 #   You should'nt change this unless you moved to another folder,
 #   or want to use your own cli directory.
-#   Default: ${cacti_dir}/cli
+#   Default: ${install_dir}/cli
 #
 # [*server*]
 #   Wether or not to install the cacti server, set to true to install cacti.
@@ -164,7 +164,7 @@ define cacti::host (
   $node_type    = $cacti::node_type,
   $parent_node  = $cacti::parent_node,
   $host_group_s = $cacti::host_group_s,
-  $cacti_dir    = $cacti::cacti_dir,
+  $install_dir    = $cacti::install_dir,
 ) {
 
   # The base class must be included first because it is used by parameter defaults
@@ -204,7 +204,7 @@ define cacti::host (
     node_type    => $node_type,
     parent_node  => $parent_node,
     host_group_s => $host_group_s,
-    cacti_dir    => $cacti_dir,
+    install_dir    => $install_dir,
   }
   cacti::graph { 'Load Average cacti-master':
     host          => $name,

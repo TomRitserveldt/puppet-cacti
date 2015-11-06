@@ -3,7 +3,7 @@
 #   The base location for cacti cli files, this is usually a cli folder in the base dir.
 #   You should'nt change this unless you moved to another folder,
 #   or want to use your own cli directory.
-#   Default: ${cacti_dir}/cli
+#   Default: ${install_dir}/cli
 #
 # [*tree_type*]
 #  you should not change this, since you will automatically use the node tree type when you add a new device.

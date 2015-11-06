@@ -12,7 +12,7 @@
 # See below for examples
 #
 # === Parameters:
-# [*cacti_dir*]
+# [*install_dir*]
 #   The base location where cacti is installed, only change this if you specifically installed
 #   cacti to another location.
 #   Default: '/usr/share/cacti'
@@ -183,7 +183,7 @@
 #
 #
 class cacti(
-  $cacti_dir     = $cacti::params::cacti_dir,
+  $install_dir   = $cacti::params::install_dir,
   $cli_dir       = $cacti::params::cli_dir,
   $server        = $cacti::params::server,
   $ensure        = $cacti::params::ensure,

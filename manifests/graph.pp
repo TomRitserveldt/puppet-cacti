@@ -4,7 +4,7 @@
 #   The base location for cacti cli files, this is usually a cli folder in the base dir.
 #   You should'nt change this unless you moved to another folder,
 #   or want to use your own cli directory.
-#   Default: ${cacti_dir}/cli
+#   Default: ${install_dir}/cli
 #
 # [*host*]
 #   Default:  none

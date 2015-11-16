@@ -17,7 +17,7 @@ class cacti::server(
   $db_password = $::cacti::db_password
 
   if !$db_password {
-    $rnd = fqdn_rand(999_999_999)
+    $rnd = fqdn_rand(999999999)
     $real_db_password = md5("${rnd}${::fqdn}")
   }
   else {

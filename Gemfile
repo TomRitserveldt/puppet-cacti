@@ -2,13 +2,17 @@ source 'https://rubygems.org'
 
 puppetversion = ENV.key?('PUPPET_VERSION') ? "#{ENV['PUPPET_VERSION']}" : ['>= 3.3']
 
-group :development, :test do
-  gem 'pry',                                                        :require => false
-  gem 'beaker-rspec',                                               :require => false
-  gem 'puppet', puppetversion,                                      :require => false
-  gem 'puppetlabs_spec_helper', '>= 0.8.2',                         :require => false
+gem 'puppet', puppetversion
+gem 'facter', '>= 1.7.0'
+
+group :rspec do
+  gem 'rake'
+  gem 'rspec-puppet'
+  gem 'puppetlabs_spec_helper', '>= 0.8.2'
+end
+
+group :lint do
   gem 'puppet-lint', '>= 1.0.0',                                    :require => false
-  gem 'facter', '>= 1.7.0',                                         :require => false
   gem 'metadata-json-lint',                                         :require => false
   gem 'puppet-lint-appends-check',                                  :require => false
   gem 'puppet-lint-absolute_classname-check',                       :require => false
@@ -29,4 +33,9 @@ group :development, :test do
   gem 'puppet-lint-variable_contains_upcase',                       :require => false
   gem 'puppet-lint-version_comparison-check',                       :require => false
   gem 'puppet-lint-strict_indent-check',                            :require => false
+end
+
+group :beaker do
+  gem 'pry',                                                        :require => false
+  gem 'beaker-rspec',                                               :require => false
 end

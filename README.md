@@ -99,11 +99,15 @@ Selecting this (max) bundler version is important to work together with
 Vagrant 1.7.4 (...on Mac OSX)
 
 ```
-bundle install [--path vendor/bundle]
+PUPPET_VERSION=3.8.4 bundle install [--path vendor/bundle]
 ```
 
 ```
 bundle exec rake validate
+```
+
+```
+bundle exec rake spec
 ```
 
 ```

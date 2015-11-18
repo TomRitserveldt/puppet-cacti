@@ -1,0 +1,6 @@
+fixtures:
+  repositories:
+    "stdlib": "http://atlas.vrt.be/stash/scm/LC/https_3a_2f_2fgithub_2ecom_2fpuppetlabs_2fpuppetlabs-stdlib_2egit"
+    "snmp": "http://atlas.vrt.be/stash/scm/LC/https_3a_2f_2fgithub_2ecom_2fvrtdev_2fpuppet-snmp_2egit"
+  symlinks:
+    "cacti": "#{source_dir}"

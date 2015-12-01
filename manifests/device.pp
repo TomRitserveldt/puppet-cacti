@@ -181,6 +181,7 @@ define cacti::device (
       }
       exec { "cacti::device::assign_tree_${description}":
         command => template('cacti/assign_tree.erb'),
+        unless  => template('cacti/check_tree.erb'),
       }
     }
     'absent': {

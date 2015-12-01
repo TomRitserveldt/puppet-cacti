@@ -67,6 +67,15 @@ class cacti::server(
     require => Package['cacti'],
   }
 
+  file { "${::cacti::install_dir}/scripts/checktree.sh":
+    ensure  => file,
+    owner   => 'root',
+    mode    => '0755',
+    group   => 'root',
+    source  => 'puppet:///modules/cacti/checktree.sh',
+    require => Package['cacti'],
+  }
+
   file { "${::cacti::install_dir}/scripts/cactiversion.sh":
     ensure  => file,
     owner   => 'root',
